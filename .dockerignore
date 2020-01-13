@@ -1,0 +1,12 @@
+
+.git
+.gitignore
+.dockerignore
+.env
+.travis.yml
+.appveyor.yml
+
+Dockerfile
+
+accounts.txt
+appveyor_update_github.sh

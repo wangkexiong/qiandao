@@ -1,0 +1,22 @@
+image: Ubuntu
+
+skip_tags: true
+branches:
+  only:
+    - nonexisted
+
+environment:
+  GITHUB_USER:
+    secure: qozx3wkmakdI3k/sz9Ml8Q==
+  GITHUB_EMAIL:
+    secure: Xou4FEHMweGQSeay5Q9/LjoLWwlDzMmBa39KYVylgK0=
+  GITHUB_TOKEN:
+    secure: HImK7idCBTKUB6w7DRTDV/5Ko9+TlZCLOXjbuGNb+InxYQm+H72G8fNPKVcrfcEz
+  ACCOUNTS:
+    secure: ax06yDnxhdltL9amToHfb2sWza+JhJCbmXPdppb8rpmQNvSR0xXB88qpypq69nMk5JwN3KJC6xzm+JVstWKpLK9xXwOyXPuxVdPhsUKZG3mEn62V0xp9onQCrSiIImo3G4cNzESot9hnhto3TWd7zRGzvDLbHwd6X/vq71Hf5S6erR3vRfnZTc6io9bsgVBcK8p7FqCqiImeHeMZb5gQuQ==
+
+build_script:
+  - echo "ACCOUNTS=$ACCOUNTS" > .env
+  - touch accounts.txt
+  - docker run -v $APPVEYOR_BUILD_FOLDER/accounts.txt:/working/accounts.txt --env-file .env wangkexiong/qiandao python3 appveyor.py
+  - ./appveyor_update_github.sh
