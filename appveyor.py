@@ -12,6 +12,7 @@ from collections import defaultdict
 
 from checkinlibs.poro import Poro
 from checkinlibs.banyungong import Banyungong
+from checkinlibs.zimuzu import Zimuzu
 from browser import HeadlessBrowser
 
 logging.config.dictConfig(yaml.load(open('logging.yaml', 'r'), Loader=yaml.FullLoader))
@@ -27,6 +28,10 @@ site_conf = {
     },
     'banyungong': {
         'cls': Banyungong,
+        'tz': 'Asia/Shanghai'
+    },
+    'zimuzu': {
+        'cls': Zimuzu,
         'tz': 'Asia/Shanghai'
     },
 }

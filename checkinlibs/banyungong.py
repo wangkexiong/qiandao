@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from datetime import datetime
 import logging
 
 from selenium.webdriver.common.by import By
