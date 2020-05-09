@@ -1,0 +1,36 @@
+os: Default Azure
+
+skip_tags: true
+branches:
+  only:
+    - nonexisted
+
+environment:
+  APPVEYOR_RDP_PASSWORD:
+    secure: Hj73NIE1ZHUH7DGShakR4Q==
+  GITHUB_USER:
+    secure: qozx3wkmakdI3k/sz9Ml8Q==
+  GITHUB_EMAIL:
+    secure: Xou4FEHMweGQSeay5Q9/LjoLWwlDzMmBa39KYVylgK0=
+  GITHUB_TOKEN:
+    secure: HImK7idCBTKUB6w7DRTDV/5Ko9+TlZCLOXjbuGNb+InxYQm+H72G8fNPKVcrfcEz
+  XIAMI_ACCOUNTS:
+    secure: RpmaYYOhtXum+bZ0cEmgjkr7lkKSPPkdgY/Q0E1HChpq+lkdMIFF0ZD7dyGUdFLzVkjvC3gP0ZRgEZMr9+H1WvxJcK8ASWa9liumYOab2P2IYW9rL3bgaVtzq6VOjqah
+  BANYUNGONG_ACCOUNTS:
+    secure: M1OuCOJJtYsBeU+9ocXbwAe7C3F1a29xrHtLnuRJI7GpWLmbgl0ZNJA6TDBJRF32
+  PORO_ACCOUNTS:
+    secure: rthDEQx29hMB7NrWG3fiCJqco7xlWQeppEYbgESD7AQ5wQM+1JDzoldpTSYmlg9+mzHswWdZGfIAg5Jg9yTsxpgaDk5I3J1jE2Q+Uxbv5M6F3Fq0XbEhE6tDbanC6EUK
+  BAACLOUD_ACCOUNTS:
+    secure: BBIiEJp9UmSWI1HstKnvcJnsDey0VwQtg4xVAYvz8YsDSPbRirXcxerBlxW1dGmwoGw+wKVRZE432DnmnEw25qb0jMkZ5IzSYWh94qMTzzK9vHZlP592JoFvwbN5zviA
+
+install:
+  - SET PATH=C:\python27;C:\python27\Scripts;%PATH%
+  - pip install -r requirements.txt
+
+build_script:
+  - python checkin.py
+  - update_github
+
+#on_finish:
+#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+

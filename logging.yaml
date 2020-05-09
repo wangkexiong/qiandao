@@ -1,0 +1,25 @@
+---
+version: 1
+disable_existing_loggers: False
+
+formatters:
+  brief:
+    format: "%(levelname)-8s: %(message)s"
+  precise:
+    format: "%(asctime)s %(filename)13s:%(lineno)-4d %(levelname)-5s - %(processName)s/%(threadName)-10s %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: precise
+    stream: ext://sys.stdout
+
+loggers:
+  __main__:
+    level: DEBUG
+    handlers: [console]
+  lib:
+    level: DEBUG
+    handlers: [console]
+...
