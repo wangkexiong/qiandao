@@ -13,7 +13,7 @@ environment:
   GITHUB_TOKEN:
     secure: HImK7idCBTKUB6w7DRTDV/5Ko9+TlZCLOXjbuGNb+InxYQm+H72G8fNPKVcrfcEz
   ACCOUNTS:
-    secure: ax06yDnxhdltL9amToHfb2sWza+JhJCbmXPdppb8rpmQNvSR0xXB88qpypq69nMk5JwN3KJC6xzm+JVstWKpLK9xXwOyXPuxVdPhsUKZG3mEn62V0xp9onQCrSiIImo33C8lX6x3RD08AlsMpDPQixb47ZZzslJtEMtDCYsZz6FfYlPDcRtzz5T0Uzw6UqKwQvxXw1zjzk0xCuxVB/fmd20+DTFT8qEmHB3IqVAa8+uzXkcZked8Yro1Bu98sveX
+    secure: 2VuqzpIC2mUrw/rSYqvDWtm0pygI8os0EJZ5Jal2R7dN1BUuEQ+y3jTKDaLsnCc1BwSGL/H47/7/Q1hfOBodcxqaKPZfeAUtKbgqgd5DOghxAteYpeJYYq4g6j5JOYAw
 
 build_script:
   - echo "ACCOUNTS=$ACCOUNTS" > .env
