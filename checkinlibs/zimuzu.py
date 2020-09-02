@@ -19,14 +19,18 @@ class Zimuzu(SeleniumRequest):
     def checkin(self, username, password):
         logger.info('%s: check account %s...' % (self.__class__.__name__, username))
 
-        self.driver.get("http://rrys2019.com/user/login")
-        refresh_timeout = 30
+        self.driver.get("http://zimuzu.tv")
         try:
+            refresh_timeout = 10
+            WebDriverWait(self.driver, refresh_timeout).until(
+                EC.presence_of_element_located((By.LINK_TEXT, u"登入")))
+            self.driver.find_element(By.LINK_TEXT, u"登入").click()
             self.driver.find_element(By.NAME, "email").send_keys(username)
             self.driver.find_element(By.NAME, "password").send_keys(password)
             self.driver.find_element(By.NAME, "password").send_keys(Keys.ENTER)
 
             logger.debug('%s: waiting for account appearing...', self.__class__.__name__)
+            refresh_timeout = 30
             WebDriverWait(self.driver, refresh_timeout).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, ".av")))
             self.driver.find_element(By.CSS_SELECTOR, ".av").click()
