@@ -18,5 +18,5 @@ environment:
 build_script:
   - echo "ACCOUNTS=$ACCOUNTS" > .env
   - touch accounts.txt
-  - docker run -v $APPVEYOR_BUILD_FOLDER/accounts.txt:/working/accounts.txt --env-file .env wangkexiong/qiandao python3 appveyor.py
+  - docker run -v /dev/shm:/dev/shm -v $APPVEYOR_BUILD_FOLDER/accounts.txt:/working/accounts.txt --env-file .env wangkexiong/qiandao python3 appveyor.py
   - ./appveyor_update_github.sh
